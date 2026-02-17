@@ -7,6 +7,8 @@ public class Wallet : MonoBehaviour
     private float timer = 0.0f;
     private float wallet = 0.0f;
 
+    private bool buyable = true;
+
     [SerializeField] 
     private TMP_Text _walletText;
 
@@ -36,6 +38,23 @@ public class Wallet : MonoBehaviour
             DisplayWallet();
             coal.DisplayAll();
         }
+    }
+
+    public bool isBuyable()
+    {
+        if (coal.getLevelUpPrice() <= wallet)
+        {
+            return buyable = true;
+        }
+        else
+        {
+            return buyable = false;
+        }
+    }
+
+    public  float removeDollars()
+    {
+        return wallet -= coal.getLevelUpPrice();
     }
 
     private void Update()

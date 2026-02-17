@@ -1,11 +1,14 @@
 using UnityEngine;
 using TMPro;
+using NUnit.Framework;
 
 public class Coal : MonoBehaviour
 {
     private int level = 0;
     private float levelUpPrice = 5f;
     private float price = 2.5f;
+
+
 
     [SerializeField]
     private Wallet wallet;
@@ -21,15 +24,25 @@ public class Coal : MonoBehaviour
 
     public void levelUp()
     {
-        level += 1;
+        if (wallet.isBuyable())
+        {
+            wallet.removeDollars();
+        
 
-        // Augmente les gains de 5% (moins agressif)
-        price *= 1.25f;
 
-        // Augmente le prix d'upgrade de 25% (moins agressif)
-        levelUpPrice *= 1.25f;
+             level += 1;
 
-        DisplayAll();
+            // Augmente les gains de 5% (moins agressif)
+            price *= 1.25f;
+
+            // Augmente le prix d'upgrade de 25% (moins agressif)
+            levelUpPrice *= 1.25f;
+
+            
+
+            DisplayAll();
+            wallet.DisplayWallet();
+        }
     }
 
     public float OverTimeCoal()
@@ -39,7 +52,11 @@ public class Coal : MonoBehaviour
 
         return 0f;
     }
-
+     
+    public float getLevelUpPrice()
+    {
+        return levelUpPrice;
+    }
     public void DisplayCoalPriceUpgrade()
     {
         _priceUpgrade.SetText("Price upgrade : {0:0.00}$", levelUpPrice);
