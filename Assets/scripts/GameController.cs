@@ -3,7 +3,11 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    int wallet = 0;
+    private Portefeuille wallet;
+
+
+
+    
 
 
 
@@ -17,8 +21,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        wallet += 1;
-        Debug.Log(wallet);   
+       // wallet.OverTime();
     }
+
 
 }
