@@ -3,62 +3,30 @@ using TMPro;
 
 public class Wallet : MonoBehaviour
 {
-    private float timing = 1.0f;
-    private float timer = 0.0f;
     private float wallet = 0.0f;
-
-    private bool buyable = true;
 
     [SerializeField] 
     private TMP_Text _walletText;
 
-    [SerializeField]
-    private Coal coal;
-
-    public void AddDollars()
+    public void AddDollars(float amount)
     {
-        wallet += 1f;
+        wallet += amount;
+        DisplayWallet();
+    }
+
+    public bool IsBuyable(float amount)
+    {
+        return wallet >= amount;
+    }
+
+    public void RemoveDollars(float amount)
+    {
+        wallet -= amount;
         DisplayWallet();
     }
 
     public void DisplayWallet()
     {
         _walletText.SetText("${0:0.00}", wallet);
-    }
-
-    public void OverTime()
-    {
-        timer += Time.deltaTime;
-
-        if (timer >= timing)
-        {
-            wallet += coal.OverTimeCoal();
-            timer = 0f;
-
-            DisplayWallet();
-            coal.DisplayAll();
-        }
-    }
-
-    public bool isBuyable()
-    {
-        if (coal.getLevelUpPrice() <= wallet)
-        {
-            return buyable = true;
-        }
-        else
-        {
-            return buyable = false;
-        }
-    }
-
-    public  float removeDollars()
-    {
-        return wallet -= coal.getLevelUpPrice();
-    }
-
-    private void Update()
-    {
-        OverTime();
     }
 }

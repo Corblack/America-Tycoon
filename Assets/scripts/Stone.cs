@@ -1,13 +1,13 @@
 using UnityEngine;
 using TMPro;
 
-public class Coal : MonoBehaviour
+public class Stone : MonoBehaviour
 {
     private int level = 0;
 
-    private float levelUpPrice = 5f;   
-    private float price = 2.5f;       
-    private float scaling = 1.25f;    
+    private float levelUpPrice = 3f;
+    private float price = 1.5f;  
+    private float scaling = 1.20f;     
 
     [SerializeField]
     private Wallet wallet;
@@ -36,7 +36,7 @@ public class Coal : MonoBehaviour
         }
     }
 
-    public float OverTimeCoal()
+    public float OverTimeStone()
     {
         return level > 0 ? price : 0f;
     }
@@ -53,7 +53,7 @@ public class Coal : MonoBehaviour
 
     public void DisplayButton()
     {
-        _buttonText.SetText(level < 1 ? "Buy Coal Mine" : "Upgrade Coal Mine");
+        _buttonText.SetText(level < 1 ? "Buy Stone Mine" : "Upgrade Stone Mine");
     }
 
     public void DisplayAll()
