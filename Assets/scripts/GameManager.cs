@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Stone stone;
     [SerializeField] private Coal coal;
 
+    [SerializeField] private Oil oil;
+
     private float timer = 0f;
     private float interval = 1f;
 
@@ -13,9 +15,11 @@ public class GameManager : MonoBehaviour
     {
         stone.DisplayAll();
         coal.DisplayAll();
+        oil.DisplayAll();
         wallet.DisplayWallet();
         coal.ActivateCoalSprite();
         stone.ActivateStoneSprite();
+        oil.ActivateOilSprite();
     }
 
     private void Update()
@@ -36,6 +40,9 @@ public class GameManager : MonoBehaviour
 
         totalIncome += stone.OverTimeStone();
         totalIncome += coal.OverTimeCoal();
+        totalIncome += oil.OverTimeOil();
+
+        // ICI ON DOIT RAJOUTER LES NOUVEAUX ELEMENTS SINON ILS FONT PAS D4ARGENT
 
         wallet.AddDollars(totalIncome);
     }
@@ -44,5 +51,8 @@ public class GameManager : MonoBehaviour
     {
         stone.DisplayAll();
         coal.DisplayAll();
+        oil.DisplayAll();
+
+        // ET ICI AUSSI SINON CA AFFICHE MAL 
     }
 }
