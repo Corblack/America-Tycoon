@@ -7,7 +7,8 @@ public class Coal : MonoBehaviour
     private int level = 0;
     private float levelUpPrice = 5f;
     private float price = 2.5f;
-
+    private float productionMultiplyer = 1.10f;
+    private float costMultiplyer = 1.25f;
 
 
     [SerializeField]
@@ -24,25 +25,18 @@ public class Coal : MonoBehaviour
 
     public void levelUp()
     {
-        if (wallet.isBuyable())
-        {
-            wallet.removeDollars();
+       if(wallet.canAfford(levelUpPrice)){
         
+        wallet.removeMoney(levelUpPrice);
 
+        level++ ;
 
-             level += 1;
+        price *= productionMultiplyer;
+        levelUpPrice *= costMultiplyer;
 
-            // Augmente les gains de 5% (moins agressif)
-            price *= 1.25f;
+        DisplayAll();
 
-            // Augmente le prix d'upgrade de 25% (moins agressif)
-            levelUpPrice *= 1.25f;
-
-            
-
-            DisplayAll();
-            wallet.DisplayWallet();
-        }
+       }
     }
 
     public float OverTimeCoal()

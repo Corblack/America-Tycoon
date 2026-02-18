@@ -40,21 +40,15 @@ public class Wallet : MonoBehaviour
         }
     }
 
-    public bool isBuyable()
+    public bool canAfford(float ammount)
     {
-        if (coal.getLevelUpPrice() <= wallet)
-        {
-            return buyable = true;
-        }
-        else
-        {
-            return buyable = false;
-        }
+       return wallet >= ammount;
     }
 
-    public  float removeDollars()
+    public  float removeMoney(float ammount)
     {
-        return wallet -= coal.getLevelUpPrice();
+        return wallet -= ammount;
+        DisplayWallet();
     }
 
     private void Update()
