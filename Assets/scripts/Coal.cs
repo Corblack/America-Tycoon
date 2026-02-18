@@ -5,21 +5,24 @@ public class Coal : MonoBehaviour
 {
     private int level = 0;
 
-    private float levelUpPrice = 5f;   
-    private float price = 2.5f;       
-    private float scaling = 1.25f;    
+    private float levelUpPrice = 5f;
+    private float price = 2.5f;
+    private float scaling = 1.25f;
 
     [SerializeField]
     private Wallet wallet;
 
-    [SerializeField] 
+    [SerializeField]
     private TMP_Text _priceUpgrade;
 
-    [SerializeField] 
+    [SerializeField]
     private TMP_Text _buttonText;
 
-    [SerializeField] 
+    [SerializeField]
     private TMP_Text _levelText;
+
+    [SerializeField]
+    private GameObject CoalSprite;
 
     public void LevelUp()
     {
@@ -28,6 +31,7 @@ public class Coal : MonoBehaviour
             wallet.RemoveDollars(levelUpPrice);
 
             level++;
+            ActivateCoalSprite();
 
             price *= scaling;
             levelUpPrice *= scaling;
@@ -62,4 +66,15 @@ public class Coal : MonoBehaviour
         DisplayLevel();
         DisplayPrice();
     }
+
+    public void ActivateCoalSprite()
+    {
+        CoalSprite.SetActive(false);
+        if(level >= 1)
+        {
+            CoalSprite.SetActive(true);
+        }
+    }
+
+
 }

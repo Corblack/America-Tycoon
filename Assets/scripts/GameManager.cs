@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
         stone.DisplayAll();
         coal.DisplayAll();
         wallet.DisplayWallet();
+        coal.ActivateCoalSprite();
+        stone.ActivateStoneSprite();
     }
 
     private void Update()

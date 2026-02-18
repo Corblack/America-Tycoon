@@ -21,6 +21,11 @@ public class Stone : MonoBehaviour
     [SerializeField] 
     private TMP_Text _levelText;
 
+    [SerializeField] 
+    private GameObject StoneSprite;
+
+
+
     public void LevelUp()
     {
         if (wallet.IsBuyable(levelUpPrice))
@@ -28,6 +33,7 @@ public class Stone : MonoBehaviour
             wallet.RemoveDollars(levelUpPrice);
 
             level++;
+            ActivateStoneSprite();
 
             price *= scaling;
             levelUpPrice *= scaling;
@@ -61,5 +67,14 @@ public class Stone : MonoBehaviour
         DisplayButton();
         DisplayLevel();
         DisplayPrice();
+    }
+
+        public void ActivateStoneSprite()
+    {
+        StoneSprite.SetActive(false);
+        if(level >= 1)
+        {
+            StoneSprite.SetActive(true);
+        }
     }
 }
