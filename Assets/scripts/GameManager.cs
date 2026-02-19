@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Uranium uranium;
 
+    [SerializeField] private TogglePanel togglePanel;
+
     private float timer = 0f;
     private float interval = 1f;
 
