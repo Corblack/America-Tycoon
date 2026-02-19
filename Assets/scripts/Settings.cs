@@ -1,13 +1,20 @@
 using UnityEngine;
 
 public class SettingsMenu : MonoBehaviour
-{    public void QuitGame()
+
+{
+    [SerializeField] private Wallet wallet;
+        public void QuitGame()
     {
-        Debug.Log("Quitter le jeu...");
         Application.Quit();
 
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+    public void ActivateGodMode()
+    {
+        wallet.SetGodModeMoney();
     }
 }

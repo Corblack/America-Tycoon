@@ -3,7 +3,7 @@ using TMPro;
 
 public class Wallet : MonoBehaviour
 {
-    private float wallet = 1000000000f;
+    private float wallet = 0f;
 
     [SerializeField] 
     private TMP_Text _walletText;
@@ -22,6 +22,12 @@ public class Wallet : MonoBehaviour
     public void RemoveDollars(float amount)
     {
         wallet -= amount;
+        DisplayWallet();
+    }
+
+    public void SetGodModeMoney()
+    {
+        wallet = 10000000f;
         DisplayWallet();
     }
 
