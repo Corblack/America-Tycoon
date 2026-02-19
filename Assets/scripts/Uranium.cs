@@ -6,8 +6,9 @@ public class Uranium : MonoBehaviour
     private int level = 0;
 
     private float levelUpPrice = 50f;     // Plus cher que Oil
-    private float price = 20f;            // Rapporte plus que Oil
-    private float scaling = 1.5f;         // Scaling encore plus fort
+    private float price = 20f;              // Rapporte plus que Oil
+     private float costMultiplyer = 1.20f;
+    private float productionMultiplyer = 1.10f  ;     
 
     [SerializeField]
     private Wallet wallet;
@@ -33,8 +34,8 @@ public class Uranium : MonoBehaviour
             level++;
             ActivateUraniumSprite();
 
-            price *= scaling;
-            levelUpPrice *= scaling;
+            price *= productionMultiplyer ;
+            levelUpPrice *= costMultiplyer ;
 
             DisplayAll();
         }

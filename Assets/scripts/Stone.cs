@@ -7,7 +7,8 @@ public class Stone : MonoBehaviour
 
     private float levelUpPrice = 3f;
     private float price = 1.5f;  
-    private float scaling = 1.20f;     
+     private float costMultiplyer = 1.20f;
+    private float productionMultiplyer = 1.10f  ; 
 
     [SerializeField]
     private Wallet wallet;
@@ -35,8 +36,8 @@ public class Stone : MonoBehaviour
             level++;
             ActivateStoneSprite();
 
-            price *= scaling;
-            levelUpPrice *= scaling;
+            price *= productionMultiplyer ;
+            levelUpPrice *= costMultiplyer ;
 
             DisplayAll();
         }

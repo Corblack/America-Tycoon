@@ -7,8 +7,9 @@ public class Coal : MonoBehaviour
 
     private float levelUpPrice = 5f;
     private float price = 2.5f;
-    private float scaling = 1.25f;
-
+    private float costMultiplyer = 1.20f;
+    private float productionMultiplyer = 1.10f;
+    
     [SerializeField]
     private Wallet wallet;
 
@@ -33,8 +34,8 @@ public class Coal : MonoBehaviour
             level++;
             ActivateCoalSprite();
 
-            price *= scaling;
-            levelUpPrice *= scaling;
+            price *= productionMultiplyer ;
+            levelUpPrice *= costMultiplyer ;
 
             DisplayAll();
         }
@@ -75,6 +76,5 @@ public class Coal : MonoBehaviour
             CoalSprite.SetActive(true);
         }
     }
-
 
 }

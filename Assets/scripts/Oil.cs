@@ -6,8 +6,9 @@ public class Oil : MonoBehaviour
     private int level = 0;
 
     private float levelUpPrice = 15f;    
-    private float price = 7.5f;          
-    private float scaling = 1.35f;      
+    private float price = 7.5f;           
+     private float costMultiplyer = 1.20f;
+    private float productionMultiplyer = 1.10f ;
 
     [SerializeField]
     private Wallet wallet;
@@ -33,8 +34,8 @@ public class Oil : MonoBehaviour
             level++;
             ActivateOilSprite();
 
-            price *= scaling;
-            levelUpPrice *= scaling;
+            price *= productionMultiplyer ;
+            levelUpPrice *= costMultiplyer ;
 
             DisplayAll();
         }
