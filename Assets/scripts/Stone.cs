@@ -5,8 +5,8 @@ public class Stone : MonoBehaviour
 {
     private int level = 0;
 
-    private float levelUpPrice = 3f;
-    private float price = 1.5f;  
+    private float levelUpPrice = 5f;
+    private float price = 3f;  
      private float costMultiplyer = 1.20f;
     private float productionMultiplyer = 1.10f  ; 
 
@@ -50,7 +50,7 @@ public class Stone : MonoBehaviour
 
     public void DisplayPrice()
     {
-        _priceUpgrade.SetText("Price upgrade : {0:0.00}$", levelUpPrice);
+        _priceUpgrade.SetText("Price : {0:0.00}$", levelUpPrice);
     }
 
     public void DisplayLevel()
@@ -78,4 +78,9 @@ public class Stone : MonoBehaviour
             StoneSprite.SetActive(true);
         }
     }
+
+    public int getLevel(){
+        return level ;
+    }
+
 }

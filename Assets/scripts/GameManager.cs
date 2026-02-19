@@ -8,9 +8,22 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Oil oil;
 
+    [SerializeField] private X2Money money ;
+
     [SerializeField] private Uranium uranium;
 
-    [SerializeField] private TogglePanel togglePanel;
+    [SerializeField] private GameObject coalPanel;
+
+    [SerializeField] private GameObject oilPanel;
+
+    [SerializeField] private GameObject uraniumPanel;
+
+    [SerializeField] private GameObject MoneyX2;
+
+
+
+    
+
 
     private float timer = 0f;
     private float interval = 1f;
@@ -26,6 +39,7 @@ public class GameManager : MonoBehaviour
         stone.ActivateStoneSprite();
         oil.ActivateOilSprite();
         uranium.ActivateUraniumSprite();
+        money.DisplayAll();
     }
 
     private void Update()
@@ -48,8 +62,11 @@ public class GameManager : MonoBehaviour
         totalIncome += coal.OverTimeCoal();
         totalIncome += oil.OverTimeOil();
         totalIncome += uranium.OverTimeUranium();
+        if(money.getLevel() == 5){
+            totalIncome *= 2 ;
+        }
 
-        // ICI ON DOIT RAJOUTER LES NOUVEAUX ELEMENTS SINON ILS FONT PAS D4ARGENT
+        
 
         wallet.AddDollars(totalIncome);
     }
@@ -59,8 +76,18 @@ public class GameManager : MonoBehaviour
         stone.DisplayAll();
         coal.DisplayAll();
         oil.DisplayAll();
-        uranium.DisplayAll();
+        uranium.DisplayAll(); 
+    }
 
-        // ET ICI AUSSI SINON CA AFFICHE MAL 
+    public void showUpgrade(){
+        if(stone.getLevel() >= 25 ){
+        coalPanel.SetActive(true);
+        }
+        if(coal.getLevel() >= 25 ){
+            oilPanel.SetActive(true);
+        }
+         if(oil.getLevel() >= 25 ){
+            uraniumPanel.SetActive(true);
+        }
     }
 }

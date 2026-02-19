@@ -5,8 +5,8 @@ public class Uranium : MonoBehaviour
 {
     private int level = 0;
 
-    private float levelUpPrice = 50f;     // Plus cher que Oil
-    private float price = 20f;              // Rapporte plus que Oil
+    private float levelUpPrice = 10000f;
+    private float price = 10000f;
      private float costMultiplyer = 1.20f;
     private float productionMultiplyer = 1.10f  ;     
 
@@ -48,7 +48,7 @@ public class Uranium : MonoBehaviour
 
     public void DisplayPrice()
     {
-        _priceUpgrade.SetText("Price upgrade : {0:0.00}$", levelUpPrice);
+        _priceUpgrade.SetText("Price : {0:0.00}$", levelUpPrice);
     }
 
     public void DisplayLevel()
@@ -76,4 +76,9 @@ public class Uranium : MonoBehaviour
             UraniumSprite.SetActive(true);
         }
     }
+
+    public int getLevel(){
+        return level ;
+    }
+
 }

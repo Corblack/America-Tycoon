@@ -8,6 +8,10 @@ public class TogglePanel : MonoBehaviour
     [SerializeField]
     private GameObject SettingsPanel;
 
+    [SerializeField]
+    private GameObject bonusPanel ;
+    
+
     public void UpgradeSwitchPanel()
     {
         bool isActive = upgradePanel.activeSelf;
@@ -18,6 +22,12 @@ public class TogglePanel : MonoBehaviour
     {
         bool isActive = SettingsPanel.activeSelf;
         SettingsPanel.SetActive(!isActive);
+    }
+
+    public void bonusSwitchPanel()
+    {
+        bool isActive = bonusPanel.activeSelf;
+        bonusPanel.SetActive(!isActive) ;
     }
 
 }

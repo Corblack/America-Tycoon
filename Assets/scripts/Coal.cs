@@ -5,11 +5,11 @@ public class Coal : MonoBehaviour
 {
     private int level = 0;
 
-    private float levelUpPrice = 5f;
-    private float price = 2.5f;
+    private float levelUpPrice = 75f;
+    private float price = 1f;
     private float costMultiplyer = 1.20f;
     private float productionMultiplyer = 1.10f;
-    
+
     [SerializeField]
     private Wallet wallet;
 
@@ -48,7 +48,7 @@ public class Coal : MonoBehaviour
 
     public void DisplayPrice()
     {
-        _priceUpgrade.SetText("Price upgrade : {0:0.00}$", levelUpPrice);
+        _priceUpgrade.SetText("Price : {0:0.00}$", levelUpPrice);
     }
 
     public void DisplayLevel()
@@ -75,6 +75,10 @@ public class Coal : MonoBehaviour
         {
             CoalSprite.SetActive(true);
         }
+    }
+
+    public int getLevel(){
+        return level ;
     }
 
 }

@@ -5,9 +5,9 @@ public class Oil : MonoBehaviour
 {
     private int level = 0;
 
-    private float levelUpPrice = 15f;    
-    private float price = 7.5f;           
-     private float costMultiplyer = 1.20f;
+    private float levelUpPrice = 2500f;    
+    private float price = 100f;           
+    private float costMultiplyer = 1.20f;
     private float productionMultiplyer = 1.10f ;
 
     [SerializeField]
@@ -48,7 +48,7 @@ public class Oil : MonoBehaviour
 
     public void DisplayPrice()
     {
-        _priceUpgrade.SetText("Price upgrade : {0:0.00}$", levelUpPrice);
+        _priceUpgrade.SetText("Price : {0:0.00}$", levelUpPrice);
     }
 
     public void DisplayLevel()
@@ -76,4 +76,9 @@ public class Oil : MonoBehaviour
             OilSprite.SetActive(true);
         }
     }
+
+    public int getLevel(){
+        return level ;
+    }
+
 }
