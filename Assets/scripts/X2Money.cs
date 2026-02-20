@@ -9,6 +9,9 @@ public class X2Money : MonoBehaviour
 
     private float price = 500f;
 
+    [SerializeField]
+    private Wallet wallet;
+
     [SerializeField] private TMP_Text LevelTxt;
     [SerializeField] private TMP_Text PriceTxt;
 
@@ -16,16 +19,23 @@ public class X2Money : MonoBehaviour
 
     [SerializeField] private GameObject imageUpgrade;
 
-    public void LevelUp()
-    {
-        if (level >= MAX_LEVEL)
-            return;
 
-        level++;
-        price *= 2;
 
-        DisplayAll();
+   
+
+    public void LevelUp(){
+        if(level < MAX_LEVEL){
+            if(wallet.IsBuyable(price)){
+                
+                wallet.RemoveDollars(price);
+                level ++ ; 
+                price *= 2 ;
+                DisplayAll();
+            }
+           
+        }
     }
+
 
     public int getLevel()
     {

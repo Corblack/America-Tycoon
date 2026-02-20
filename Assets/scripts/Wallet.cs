@@ -3,7 +3,7 @@ using TMPro;
 
 public class Wallet : MonoBehaviour
 {
-    private float wallet = 0f;
+    private float wallet = 1000000000f;
 
     [SerializeField] 
     private TMP_Text _walletText;
@@ -25,8 +25,25 @@ public class Wallet : MonoBehaviour
         DisplayWallet();
     }
 
+    public string formatedWallet(float value){
+        if(value >= 1000000000f){
+            return (value / 1000000000f).ToString("F2") + "B"   ;
+        }
+
+        if( value >= 1000000f ){
+            return (value / 1000000f).ToString("F2") + "M" ;
+        }
+
+        if(value >= 1000f){
+            return (value / 1000f).ToString("F2") + "K";
+        }
+
+        return value.ToString("F2") ;
+    }
+
     public void DisplayWallet()
     {
-        _walletText.SetText("${0:0.00}", wallet);
+        string formatedAmmount = formatedWallet(wallet);
+        _walletText.SetText($"${formatedAmmount}");
     }
 }
