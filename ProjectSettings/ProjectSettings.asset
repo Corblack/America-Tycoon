@@ -686,11 +686,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 7aaab93b-e273-4e5c-a32d-cd2476477cc2
+  cloudProjectId: a3f6af7b-62a5-4d1a-880d-ac9cb69c9f9e
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: America Tycoon
-  organizationId: unity_605cd280d531349c044d
+  projectName: My project
+  organizationId: nolanleduc6
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

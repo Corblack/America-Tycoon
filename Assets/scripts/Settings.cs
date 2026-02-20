@@ -13,8 +13,5 @@ public class SettingsMenu : MonoBehaviour
 #endif
     }
 
-    public void ActivateGodMode()
-    {
-        wallet.SetGodModeMoney();
-    }
+
 }

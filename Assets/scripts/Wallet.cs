@@ -25,12 +25,6 @@ public class Wallet : MonoBehaviour
         DisplayWallet();
     }
 
-    public void SetGodModeMoney()
-    {
-        wallet = 10000000f;
-        DisplayWallet();
-    }
-
     public void DisplayWallet()
     {
         _walletText.SetText("${0:0.00}", wallet);
