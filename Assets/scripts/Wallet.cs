@@ -3,7 +3,7 @@ using TMPro;
 
 public class Wallet : MonoBehaviour
 {
-    private float wallet = 1000000000f;
+    private float wallet = 0f;
 
     [SerializeField] 
     private TMP_Text _walletText;
